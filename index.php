@@ -3,6 +3,16 @@ include('database/credentials.php');
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $mysqli = new mysqli($DBHOST, $DBUSER, $DBPWD, $DBNAME);
 
+// Check cookie to see if logout has been selected
+if (isset($_COOKIE['remember_user'])) {
+  unset($_COOKIE['remember_user']); 
+  setcookie('remember_user', null, -1, '/'); 
+  return true;
+} else {
+  return false;
+}
+
+//else
 $error_msg = "";
 
 setcookie("score", 0, time() + 86400, "/");
@@ -77,6 +87,7 @@ if (isset($_POST["email"])) {
           </div>
           <div class="text-center">                
           <button type="submit" class="btn btn-primary">Log in / Create Account</button>
+          <a href="index.php" id="LogoutAction">Logout</a>
           </div>
         </form>
         </div>
