@@ -8,7 +8,7 @@ $error_msg = "";
 setcookie("score", 0, time() + 86400, "/");
 
 if (isset($_POST["email"])) {
-  $stmt = $mysqli->prepare("select * from user where email = ?;");
+  $stmt = $mysqli->prepare("select * from users where email = ?;");
   $stmt->bind_param("s", $_POST["email"]);
   if (!$stmt->execute()) {
     $error_msg = "Error checking for user";
@@ -25,7 +25,7 @@ if (isset($_POST["email"])) {
       }
     } else {
       $hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
-      $insert = $mysqli->prepare("insert into user (name, email, password) values (?, ?, ?);");
+      $insert = $mysqli->prepare("insert into users (name, email, password) values (?, ?, ?);");
       $insert->bind_param("sss", $_POST["name"], $_POST["email"], $hash);
       
       if (!$insert->execute()) {

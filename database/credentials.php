@@ -1,6 +1,6 @@
 <?php
-  $DBUSER = "";
+  $DBUSER = "root";
   $DBPWD = "";
-  $DBHOST = "";
-  $DBNAME = "";
+  $DBHOST = "localhost";
+  $DBNAME = "trivia";
 ?>

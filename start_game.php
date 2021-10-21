@@ -30,6 +30,17 @@ if (isset($_POST["category"])) {
         </div>
       </div>
 
+      <div class="container" style="margin: 3em;">
+      <div class="card my-4">
+        <div class="card-body">
+          <h1>Tricky Trivia Instructions!</h1>
+          <p>The rules are simple:</p>
+          <ul>1. Choose 1 category</ul>
+          <ul>2. Answer to the best of your ability</ul>
+          <ul>3. Answer correctly to gain points!</ul>
+        </div>
+      </div>
+
       <form action="start_game.php" method="post">
         <select class="dropdown-menu">
           <option value="Computers">Computers</option>

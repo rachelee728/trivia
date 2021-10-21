@@ -13,7 +13,7 @@
     primary key (id));");
   
   $db->query("drop table if exists user;");
-  $db->query("create table user (
+  $db->query("create table users (
     id int not null auto_increment,
     email text not null,
     name text not null,
