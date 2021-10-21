@@ -5,6 +5,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $mysqli = new mysqli($DBHOST, $DBUSER, $DBPWD, $DBNAME);
 $user = null;
 
+
 // Check cookie to see if a category has been selected
 if (!isset($_COOKIE["category"])) {
   header("Location: start_game.php");
@@ -100,7 +101,7 @@ $user = [
           </div>
           <div class="text-center">                
           <button type="submit" class="btn btn-primary">Submit</button>
-          <a href="index.php" class="btn btn-danger">Log out</a>
+          <a href="logout.php" class="btn btn-danger">Log out</a>
           </div>
         </form>
         </div>

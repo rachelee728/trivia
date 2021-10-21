@@ -5,6 +5,11 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $mysqli = new mysqli($DBHOST, $DBUSER, $DBPWD, $DBNAME);
 $user = null;
 
+// //Enforce login
+// if (!isset($_COOKIE['type'])){
+//   header("Location: index.php");
+// }
+
 if (isset($_POST["category"])) {
   setcookie("category", $_POST["category"], time() + (86400 * 30), "/");
   header("Location: question.php");
@@ -59,7 +64,9 @@ if (isset($_POST["category"])) {
         </div>
       </form>
     </div>
-
+    <div>
+    <a href="logout.php" id="LogoutAction">Logout</a>
+  </div>  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
   </body>
 </html>

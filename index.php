@@ -81,6 +81,7 @@ if (isset($_POST["email"])) {
           </div>
           <div class="text-center">                
           <button type="submit" class="btn btn-primary">Log in / Create Account</button>
+          <a href="logout.php" id="LogoutAction">Logout</a>
           </div>
         </form>
         </div>
