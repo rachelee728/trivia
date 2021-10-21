@@ -18,6 +18,7 @@
     email text not null,
     name text not null,
     password text not null,
+    score int not null default 0,
     primary key (id));");
 
   $db->query("drop table if exists user_question;");
