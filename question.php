@@ -66,6 +66,7 @@ if (isset($_POST["questionid"])) {
 // Get user information from cookie
 $user = [
   "name" => $_COOKIE["name"],
+  "email" => $_COOKIE["email"],
   "score" => $_COOKIE["score"]
 ];
 ?>

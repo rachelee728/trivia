@@ -14,6 +14,13 @@ if (isset($_POST["category"])) {
   setcookie("category", $_POST["category"], time() + (86400 * 30), "/");
   header("Location: question.php");
 }
+
+// Get user information from cookie
+$user = [
+  "name" => $_COOKIE["name"],
+  "email" => $_COOKIE["email"],
+  "score" => $_COOKIE["score"]
+];
 ?>
 
 <!DOCTYPE html>
@@ -30,15 +37,8 @@ if (isset($_POST["category"])) {
     <div class="container" style="margin: 3em;">
       <div class="card my-4">
         <div class="card-body">
-          <h1>How to play Tricky Trivia!</h1>
+          <h1>Welcome, <?=$user["name"]?>, let's play Tricky Trivia!</h1><br>
           <p>Tricky Trivia is indeed tricky! Read the following instructions carefully and select a category to get started!</p>
-        </div>
-      </div>
-
-      <div class="container" style="margin: 3em;">
-      <div class="card my-4">
-        <div class="card-body">
-          <h1>Tricky Trivia Instructions!</h1>
           <p>The rules are simple:</p>
           <ul>1. Choose 1 category</ul>
           <ul>2. Answer to the best of your ability</ul>

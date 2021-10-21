@@ -5,8 +5,6 @@ $mysqli = new mysqli($DBHOST, $DBUSER, $DBPWD, $DBNAME);
 
 $error_msg = "";
 
-setcookie("score", 0, time() + 86400, "/");
-
 if (isset($_POST["email"])) {
   $stmt = $mysqli->prepare("select * from users where email = ?;");
   $stmt->bind_param("s", $_POST["email"]);
