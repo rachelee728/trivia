@@ -41,7 +41,8 @@
     json_decode(file_get_contents($films), true)
   );
   
-  print_r($triviaData);
+  // print_r($triviaData);
+  echo 'Done';
   
   $points = 10;
   $stmt = $db->prepare("insert into question (category, question, answer, points) values (?,?,?,?);");
