@@ -51,12 +51,10 @@ if (isset($_POST["questionid"])) {
 
         setcookie("score", $_COOKIE["score"], time() + 86400, "/");
 
-        /*
         // Update score in database
-        $stmt = $mysqli->prepare("update user set score  = ? where email = ?;");
+        $stmt = $mysqli->prepare("update users set score  = ? where email = ?;");
         $stmt->bind_param("is", $_COOKIE["score"], $_COOKIE["email"]);
         $stmt->execute();
-        */
       } else { 
         $message = "<div class='alert alert-danger'>Incorrect!</div>";
       }
@@ -66,6 +64,7 @@ if (isset($_POST["questionid"])) {
 
 // Get user information from cookie
 $user = [
+  "name" => $_COOKIE["name"],
   "score" => $_COOKIE["score"]
 ];
 ?>
@@ -85,7 +84,7 @@ $user = [
     <div class="container" style="margin-top: 15px;">
       <div class="row col-xs-8">
         <h1>CS4640 Television Trivia Game</h1>
-        <h3>Score: <?=$user["score"]?></h3>
+        <h3>Hey, <?=$user["name"]?>, your total score is <?=$user["score"]?>!</h3>
       </div>
       <div class="row">
         <div class="col-xs-8 mx-auto">

@@ -12,12 +12,13 @@
     points int not null,
     primary key (id));");
   
-  $db->query("drop table if exists user;");
+  $db->query("drop table if exists users;");
   $db->query("create table users (
     id int not null auto_increment,
     email text not null,
     name text not null,
     password text not null,
+    score int not null default 0,
     primary key (id));");
 
   $db->query("drop table if exists user_question;");
@@ -26,16 +27,31 @@
     question_id int not null,
     points int not null);");
     
-  $data = json_decode(file_get_contents("https://opentdb.com/api.php?amount=20&category=11&type=boolean"), true);
+  $computers = "https://opentdb.com/api.php?amount=20&category=18&type=boolean";
+  $video_games = "https://opentdb.com/api.php?amount=20&category=15&type=boolean";
+  $general_knowledge = "https://opentdb.com/api.php?amount=20&category=9&type=boolean";
+  $music = "https://opentdb.com/api.php?amount=20&category=12&type=boolean";
+  $films = "https://opentdb.com/api.php?amount=20&category=11&type=boolean";
+
+  $triviaData = array(
+    json_decode(file_get_contents($computers), true),
+    json_decode(file_get_contents($video_games), true),
+    json_decode(file_get_contents($general_knowledge), true),
+    json_decode(file_get_contents($music), true),
+    json_decode(file_get_contents($films), true)
+  );
   
-  print_r($data);
+  print_r($triviaData);
   
   $points = 10;
   $stmt = $db->prepare("insert into question (category, question, answer, points) values (?,?,?,?);");
-  foreach($data["results"] as $qn) {
+
+  foreach($triviaData as $data) {
+    foreach($data["results"] as $qn) {
       $stmt->bind_param("sssi", $qn["category"], $qn["question"], $qn["correct_answer"], $points);
       if (!$stmt->execute()) {
-          echo "Could not add question: {$qn["question"]}\n";
+        echo "Could not add question: {$qn["question"]}\n";
       } 
+    }
   }
 ?>
