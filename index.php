@@ -16,7 +16,8 @@ if (isset($_POST["email"])) {
 
     setcookie("name", $_POST["name"], time() + 86400, "/"); 
     setcookie("email", $_POST["email"], time() + 86400, "/");  
-    setcookie("score", $data[0]["score"], time() + 86400, "/");    
+    setcookie("score", $data[0]["score"], time() + 86400, "/");
+    setcookie("prevAnswers", json_encode(array()), time() + 86400, "/");
     
     if (!empty($data)) {
       if (password_verify($_POST["password"], $data[0]["password"])) {
