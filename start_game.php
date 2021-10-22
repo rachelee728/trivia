@@ -38,7 +38,7 @@ $user = [
       <div class="card my-4">
         <div class="card-body">
           <h1>Welcome, <?=$user["name"]?>, let's play Tricky Trivia!</h1><br>
-          <p>Tricky Trivia is indeed tricky! Read the following instructions carefully and select a category to get started!</p>
+          <p>Tricky Trivia is indeed tricky! Read the following instructions carefully and select a category to get started! Your last played category is <?=$_COOKIE["category"]?>.</p>
           <p>The rules are simple:</p>
           <ul>1. Choose 1 category</ul>
           <ul>2. Answer to the best of your ability</ul>
