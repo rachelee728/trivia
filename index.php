@@ -49,14 +49,14 @@ if (isset($_POST["email"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Emma Choi & Rachel Lee">
     <meta name="description" content="CS4640 Homework 4">  
-    <title>Trivia Game Login</title>
+    <title>Tricky Trivia</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> 
   </head>
   <body>
     <div class="container" style="margin-top: 15px;">
       <div class="row col-xs-8">
-        <h1>CS4640 Television Trivia Game - Get Started</h1>
-        <p> Welcome to our trivia game!  To get started, login below or enter a new username and password to create an account</p>
+        <h1>Let's play Tricky Trivia!</h1>
+        <p>Tricky Trivia is indeed tricky! Login below or create a new account to get started.</p>
       </div>
       <div class="row justify-content-center">
         <div class="col-4">
